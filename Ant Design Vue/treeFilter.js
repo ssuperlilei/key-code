@@ -5,7 +5,12 @@ export const useSearch = (searchTreeState, emit, props) => {
   // 搜索的值
   const searchValue = ref<string>('');
 
-  const { curTreeData, innerPropsRef, fieldNamesRef, dataList, idMap } = searchTreeState;
+  const { 
+    curTreeData, // 显示的树形数据
+    fieldNamesRef, // 字段名
+    dataList, // 扁平化数据
+    idMap // id映射
+   } = searchTreeState;
 
   const buildTreeData = (data, parentId) => {
     let children = data.filter((item) => item.parentId === parentId) || [];
